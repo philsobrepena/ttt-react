@@ -26,7 +26,7 @@ function App() {
     <>
       <div>
       </div>
-      <h1>Vite + React</h1>
+      <h1>ttt.react</h1>
       <div className="card">
         <div id="row1">
           <button onClick={() => clickAction()}>{player}</button>
