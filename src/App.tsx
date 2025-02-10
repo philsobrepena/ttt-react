@@ -1,20 +1,26 @@
 import { useState } from 'react'
 import './App.css'
 
-
-
-function Square({value, clickAction}) {
-
+function Square({value, clickAction}){
   return <button className="square" onClick={clickAction}>{value}</button>;
 }
 
 function App() {
+  const [xIsNext, setXIsNext] = useState(true)
   const [spaces, setSpaces] = useState(Array(9).fill("-"))
 
   function handleClick(i: number){
-    const nextSpaces = spaces.slice();
-    nextSpaces[i] = "X"
+    if (spaces[i] != "-"){
+      return;
+    }
+    const nextSpaces = spaces.slice()
+    if (xIsNext){
+    nextSpaces[i] = "X";
+    } else {
+      nextSpaces[i] = "O";
+    }
     setSpaces(nextSpaces)
+    setXIsNext(!xIsNext)
   }
 
   return (
